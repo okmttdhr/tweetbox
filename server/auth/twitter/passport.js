@@ -8,6 +8,11 @@ exports.setup = function (User, config) {
     callbackURL: config.twitter.callbackURL
   },
   function(token, tokenSecret, profile, done) {
+
+    // token, tokenSecret を getCurrentUser に挿入
+    profile._json.token = token
+    profile._json.tokenSecret = tokenSecret
+
     User.findOne({
       'twitter.id_str': profile.id
     }, function(err, user) {
