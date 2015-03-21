@@ -6,7 +6,14 @@
         <button ng-click="updateHomeFeedTwitter()">更新</button>
       </div>
       <ul class="list-unstyled">
-        <li ng-repeat="tweet in tweets">{{tweet.text}}</li>
+        <li ng-repeat="tweet in tweets">
+          <img ng-src="{{tweet.usre.profile_image_url}}" alt="">
+          {{tweet.usre.name}}
+          <br>
+          {{tweet.text}}
+          <br>
+          <img ng-src="{{tweet.extended_entities.media[0].media_url}}" alt="">
+        </li>
       </ul>
     </div>
   </div>
