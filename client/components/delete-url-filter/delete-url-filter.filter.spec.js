@@ -11,7 +11,7 @@ describe('Filter: deleteUrlFilter', function () {
     deleteUrlFilter = $filter('deleteUrlFilter');
   }));
 
-  it('should return the input prefixed with "deleteUrlFilter filter:"', function () {
+  it('URLが除外されること', function () {
     var text = 'angularjshttps://angularjs.org/';
     expect(deleteUrlFilter(text)).toBe('angularjs');
   });
