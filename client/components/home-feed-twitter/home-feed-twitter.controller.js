@@ -1,6 +1,6 @@
 'use strict';
 
-// home-feedを表示するController。
+// Twitter の Home Feed を表示する Controller。
 angular.module('tweetboxApp')
   .controller('HomeFeedCtrl', function ($scope, Auth, $cookieStore,
     homeFeedTwitter) {
