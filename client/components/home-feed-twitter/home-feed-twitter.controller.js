@@ -9,14 +9,16 @@ angular.module('tweetboxApp')
     console.log('-----Auth.getCurrentUser()-----');
     console.log(Auth.getCurrentUser());
 
-    homeFeedTwitter.index({
-      id: '',
-      token: currentUser.twitter.token,
-      tokenSecret: currentUser.twitter.tokenSecret
-    }).$promise.then(function(result) {
-      console.log('scc');
-      console.log(result);
-    }, function(error) {
-      console.log('err')
-    });
+    $scope.updateHomeFeedTwitter = function() {
+      homeFeedTwitter.index({
+        id: '',
+        token: currentUser.twitter.token,
+        tokenSecret: currentUser.twitter.tokenSecret
+      }).$promise.then(function(result) {
+        console.log('scc');
+        console.log(result);
+      }, function(error) {
+        console.log('err')
+      });      
+    }
   });
