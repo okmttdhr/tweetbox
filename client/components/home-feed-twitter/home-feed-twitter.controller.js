@@ -4,7 +4,7 @@
 angular.module('tweetboxApp')
   .controller('HomeFeedCtrl', function ($scope, Auth, $cookieStore,
     homeFeedTwitter) {
-    $scope.message = 'Hello';
+    $scope.tweets;
     var currentUser = Auth.getCurrentUser();
     console.log('-----Auth.getCurrentUser()-----');
     console.log(Auth.getCurrentUser());
@@ -17,8 +17,9 @@ angular.module('tweetboxApp')
       }).$promise.then(function(result) {
         console.log('scc');
         console.log(result);
+        $scope.tweets = angular.copy(result);
       }, function(error) {
         console.log('err')
-      });      
+      });
     }
   });
