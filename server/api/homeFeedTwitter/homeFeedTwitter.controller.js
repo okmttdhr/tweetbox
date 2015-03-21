@@ -9,16 +9,24 @@ exports.index = function(req, res) {
   var client = new Twitter({
     consumer_key: 'd7EDriRzWCFIwND62zoIcTRaO',
     consumer_secret: '7hqIVthGBHnwi87RWMpSDphl5GhN4TCIhrFcQb4xw7vamQfV7l',
-    access_token_key: '',
-    access_token_secret: ''
+    access_token_key: req.query.token,
+    access_token_secret: req.query.tokenSecret
   });
 
-  var params = {screen_name: 'okmttdhr'};
-  client.get('statuses/user_timeline', params, function(error, tweets, response){
+  // var params = {screen_name: 'okmttdhr'};
+  var params = {};
+  client.get('statuses/home_timeline', params, function(error, tweets, response){
     if (!error) {
       console.log(tweets);
     }
   });
+
+  // console.log('req')
+  // console.log(req)
+  // console.log('req.body')
+  // console.log(req.body)
+  console.log('req.query')
+  console.log(req.query)
 
   // HomeFeedTwitter.find(function (err, homeFeedTwitters) {
   //   if(err) { return handleError(res, err); }

@@ -9,7 +9,8 @@ angular.module('tweetboxApp')
       index: {
         method: 'GET',
         params: {
-          // controller:'twtest'
+          token:'@token',
+          tokenSecret:'@tokenSecret'
         }
       },
       changePassword: {
