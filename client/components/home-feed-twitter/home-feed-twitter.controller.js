@@ -13,6 +13,9 @@ angular.module('tweetboxApp')
       id: '',
       token: currentUser.twitter.token,
       tokenSecret: currentUser.twitter.tokenSecret
+    }).$promise.then(function(result) {
+      console.log(result);
+    }, function(error) {
+      console.log('err')
     });
-
   });

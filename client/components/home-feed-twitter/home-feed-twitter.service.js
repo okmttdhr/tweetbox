@@ -8,6 +8,7 @@ angular.module('tweetboxApp')
     {
       index: {
         method: 'GET',
+        isArray: true,
         params: {
           token:'@token',
           tokenSecret:'@tokenSecret'

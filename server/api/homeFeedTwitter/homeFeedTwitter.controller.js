@@ -16,7 +16,7 @@ exports.index = function(req, res) {
   var params = {};
   client.get('statuses/home_timeline', params, function(error, tweets, response){
     if (!error) {
-      console.log(tweets);
+      return res.json(200, tweets);
     }
   });
 
