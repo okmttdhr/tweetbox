@@ -2,7 +2,6 @@
 
 angular.module('tweetboxApp')
   .factory('homeFeedTwitter', function ($resource) {
-    // return $resource('/api/homeFeedTwitters/:id/:controller', {
     return $resource('/api/homeFeedTwitters/:id/:controller', {
       id: '@_id'
     },
