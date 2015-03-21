@@ -7,9 +7,6 @@ angular.module('tweetboxApp')
   .filter('tweetTextFilter', function () {
     return function (input, mentions, hashtags) {
 
-      console.log(mentions.length);
-      console.log(hashtags.length);
-
       // メンションもハッシュタグもなければそのまま
       if (mentions.length == 0 && hashtags.length == 0) return input;
 
