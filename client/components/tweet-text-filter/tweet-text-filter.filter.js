@@ -5,13 +5,24 @@
 // 参考：JavaScript parser for Tweet Entities https://gist.github.com/wadey/442463
 angular.module('tweetboxApp')
   .filter('tweetTextFilter', function () {
-    return function (input, mentions, hashtags) {
+    return function (input, mentions, hashtags, urls) {
       var replacedInput;
       var result = "";
       var index = {}
 
       // メンションもハッシュタグもなければそのまま
       if (mentions.length == 0 && hashtags.length == 0) return input;
+      // if (mentions.length == 0 && hashtags.length == 0) return deleteUrl(input);
+
+      // メンションやハッシュタグとは別の方法でフィルター。
+      // deleteUrlFilterがinjectできなかったため関数にした。
+      // 理由：
+        // URLはテキストから削除したい。
+        // 最後に削除しないとentities に元々はいっている indicesが狂ってしまうため。
+      function deleteUrl(val) {
+        var replacedVal = val.replace(/((http|https|ftp|):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '');
+        return replacedVal;
+      }
 
       // エスケープ
       function escapeHTML(text) {
@@ -53,10 +64,7 @@ angular.module('tweetboxApp')
         result += escapeHTML(input.substring(last_i, i))
       }
 
-      // console.log('------------')
-      // console.log(result)
-      // console.log(index)
-
+      // return deleteUrl(result);
       return result;
     };
   });
