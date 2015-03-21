@@ -2,26 +2,35 @@
 
 var _ = require('lodash');
 var HomeFeedTwitter = require('./homeFeedTwitter.model');
+var config = require('../../config/environment');
 var Twitter = require('twitter');
 
-// Get list of homeFeedTwitters
+// console.log(config)
+
+// Get list of homeFeedTwitter
 exports.index = function(req, res) {
   var client = new Twitter({
-    consumer_key: 'd7EDriRzWCFIwND62zoIcTRaO',
-    consumer_secret: '7hqIVthGBHnwi87RWMpSDphl5GhN4TCIhrFcQb4xw7vamQfV7l',
+    consumer_key: config.twitter.clientID,
+    consumer_secret: config.twitter.clientSecret,
     access_token_key: req.query.token,
     access_token_secret: req.query.tokenSecret
   });
 
+  console.log(config.twitter.clientID);
+  console.log(config.twitter.clientSecret);
+  console.log('req.query')
+  console.log(req.query)
+
   var params = {};
   client.get('statuses/home_timeline', params, function(error, tweets, response){
+    console.log('express in')
+    console.log(error)
+    console.log(tweets)
     if (!error) {
+      console.log('express scc')
       return res.json(200, tweets);
     }
   });
-
-  console.log('req.query')
-  console.log(req.query)
 
   // HomeFeedTwitter.find(function (err, homeFeedTwitters) {
   //   if(err) { return handleError(res, err); }

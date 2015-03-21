@@ -14,6 +14,7 @@ angular.module('tweetboxApp')
       token: currentUser.twitter.token,
       tokenSecret: currentUser.twitter.tokenSecret
     }).$promise.then(function(result) {
+      console.log('scc');
       console.log(result);
     }, function(error) {
       console.log('err')
