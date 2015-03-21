@@ -13,7 +13,6 @@ exports.index = function(req, res) {
     access_token_secret: req.query.tokenSecret
   });
 
-  // var params = {screen_name: 'okmttdhr'};
   var params = {};
   client.get('statuses/home_timeline', params, function(error, tweets, response){
     if (!error) {
@@ -21,10 +20,6 @@ exports.index = function(req, res) {
     }
   });
 
-  // console.log('req')
-  // console.log(req)
-  // console.log('req.body')
-  // console.log(req.body)
   console.log('req.query')
   console.log(req.query)
 
