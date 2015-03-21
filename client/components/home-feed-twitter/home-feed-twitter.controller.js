@@ -20,7 +20,7 @@ angular.module('tweetboxApp')
         console.log('scc');
         console.log(result);
         $scope.tweets = angular.copy(result);
-        $scope.tweetsLoading = false;      
+        $scope.tweetsLoading = false;
       }, function(error) {
         console.log('err')
         $scope.tweetsLoading = false;
