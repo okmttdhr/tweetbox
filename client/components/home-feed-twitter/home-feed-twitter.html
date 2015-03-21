@@ -5,14 +5,21 @@
       <div>
         <button ng-click="updateHomeFeedTwitter()">更新</button>
       </div>
-      <ul class="list-unstyled">
+      <ul class="tweets_list list-unstyled">
+        <li class="tweets_list--loading" ng-show="tweetsLoading">ロード中</li>
         <li ng-repeat="tweet in tweets">
-          <img ng-src="{{tweet.usre.profile_image_url}}" alt="">
+          <img ng-src="{{tweet.user.profile_image_url}}" alt="">
           {{tweet.usre.name}}
           <br>
           {{tweet.text}}
           <br>
-          <img ng-src="{{tweet.extended_entities.media[0].media_url}}" alt="">
+          <p ng-repeat="url in tweet.entities.urls" ng-show="{{tweet.entities.urls.length}}">
+            <a ng-href="{{url.expanded_url}}" target="_blank">{{url.display_url}}</a>
+          </p>
+          <br>
+          <div ng-repeat="media in tweet.entities.media" ng-show="{{tweet.entities.media.length}}">
+            <img ng-src="{{media.media_url}}" alt="">
+          </div>
         </li>
       </ul>
     </div>
