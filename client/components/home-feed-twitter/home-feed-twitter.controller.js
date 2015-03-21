@@ -6,4 +6,6 @@ angular.module('tweetboxApp')
     $scope.message = 'Hello';
     console.log('---------');
     console.log(Auth.getCurrentUser());
+
+    
   });
