@@ -12,8 +12,8 @@ describe('Filter: deleteUrlFilter', function () {
   }));
 
   it('should return the input prefixed with "deleteUrlFilter filter:"', function () {
-    var text = 'angularjs';
-    expect(deleteUrlFilter(text)).toBe('deleteUrlFilter filter: ' + text);
+    var text = 'angularjshttps://angularjs.org/';
+    expect(deleteUrlFilter(text)).toBe('angularjs');
   });
 
 });
