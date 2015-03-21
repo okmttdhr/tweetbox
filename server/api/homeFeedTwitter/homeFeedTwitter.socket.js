@@ -4,7 +4,7 @@
 
 'use strict';
 
-var HomeFeedTwitter = require('./home-feed-twitter.model');
+var HomeFeedTwitter = require('./homeFeedTwitter.model');
 
 exports.register = function(socket) {
   HomeFeedTwitter.schema.post('save', function (doc) {
@@ -16,9 +16,9 @@ exports.register = function(socket) {
 }
 
 function onSave(socket, doc, cb) {
-  socket.emit('home-feed-twitter:save', doc);
+  socket.emit('homeFeedTwitter:save', doc);
 }
 
 function onRemove(socket, doc, cb) {
-  socket.emit('home-feed-twitter:remove', doc);
+  socket.emit('homeFeedTwitter:remove', doc);
 }
