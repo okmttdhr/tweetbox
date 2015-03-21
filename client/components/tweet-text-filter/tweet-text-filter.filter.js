@@ -42,18 +42,6 @@ angular.module('tweetboxApp')
 
       console.log(result)
 
-      // if (mentions.length != 0) {
-      //   $.each(mentions, function(i, item) {
-      //     console.log(item)
-      //     console.log(input)
-      //     replacedInput = input.split(item.screen_name).join('<a href="http://twitter.com/'+item.screen_name+'" target="_blank">'+item.screen_name+'</a>');
-      //     // replacedInput = input.replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '');
-      //
-      //     // input.split('@'+item.screen_name).join('<a href="http://twitter.com/'+item.screen_name+'" target="_blank">@'+item.screen_name+'</a>');
-      //     // console.log(test)
-      //   })
-      // }
-      // return replacedInput;
       return result;
     };
   });

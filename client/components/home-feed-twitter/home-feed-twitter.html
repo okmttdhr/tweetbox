@@ -10,7 +10,6 @@
         <li ng-repeat="tweet in tweets">
           <img ng-src="{{tweet.user.profile_image_url}}" alt="">
           <p>{{tweet.usre.name}}</p>
-          <!-- <p>{{ tweet.text | deleteUrlFilter | tweetTextFilter:tweet.entities.user_mentions:tweet.entities.hashtags }}</p> -->
           <p ng-bind-html="tweet.text | deleteUrlFilter | tweetTextFilter:tweet.entities.user_mentions:tweet.entities.hashtags"></p>
           <p ng-repeat="url in tweet.entities.urls" ng-show="{{tweet.entities.urls.length}}">
             <a ng-href="{{url.expanded_url}}" target="_blank">{{url.display_url}}</a>
