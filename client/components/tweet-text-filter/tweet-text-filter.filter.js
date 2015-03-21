@@ -1,5 +1,8 @@
 'use strict';
 
+// Tweet のメンションとハッシュタグをリンクに変換するフィルター。
+// リンクに関してはここではなく delete-url-filter で消している。
+// 参考：JavaScript parser for Tweet Entities https://gist.github.com/wadey/442463
 angular.module('tweetboxApp')
   .filter('tweetTextFilter', function () {
     return function (input, mentions, hashtags) {
@@ -11,9 +14,9 @@ angular.module('tweetboxApp')
         return $('<div/>').text(text).html()
       }
 
-      // "#"を使うとうまくいかなかったのでTwitterのURLに実際のクエリとして出る"%23"を使用
+      // ハッシュタグ
       $.each(hashtags, function(i,item) {
-        index_map[item.indices[0]] = [item.indices[1], function(text) {return "<a target='_blank' href='http://twitter.com/search?q="+escapeHTML("%23"+item.text)+"'>"+escapeHTML(text)+"</a>"}]
+        index_map[item.indices[0]] = [item.indices[1], function(text) {return "<a target='_blank' href='http://twitter.com/hashtag/"+escapeHTML(item.text)+"'>"+escapeHTML(text)+"</a>"}]
       })
 
       // メンション
