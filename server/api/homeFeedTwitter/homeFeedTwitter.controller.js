@@ -16,8 +16,6 @@ exports.index = function(req, res) {
     access_token_secret: req.query.tokenSecret
   });
 
-  console.log(req.query.max_id);
-
   var params = {
     count: req.query.count,
     max_id: req.query.max_id
@@ -29,7 +27,6 @@ exports.index = function(req, res) {
     }
   });
 
-  // console.log('express scc')
   // HomeFeedTwitter.find(function (err, homeFeedTwitters) {
   //   if(err) { return handleError(res, err); }
   //   return res.json(200, homeFeedTwitters);
