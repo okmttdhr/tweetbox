@@ -16,22 +16,20 @@ exports.index = function(req, res) {
     access_token_secret: req.query.tokenSecret
   });
 
-  // console.log(config.twitter.clientID);
-  // console.log(config.twitter.clientSecret);
-  // console.log('req.query')
-  // console.log(req.query)
+  console.log(req.query.max_id);
 
-  var params = {};
+  var params = {
+    count: req.query.count,
+    max_id: req.query.max_id
+  };
+
   client.get('statuses/home_timeline', params, function(error, tweets, response){
-    // console.log('express in')
-    // console.log(error)
-    // console.log(tweets)
     if (!error) {
-      // console.log('express scc')
       return res.json(200, tweets);
     }
   });
 
+  // console.log('express scc')
   // HomeFeedTwitter.find(function (err, homeFeedTwitters) {
   //   if(err) { return handleError(res, err); }
   //   return res.json(200, homeFeedTwitters);
