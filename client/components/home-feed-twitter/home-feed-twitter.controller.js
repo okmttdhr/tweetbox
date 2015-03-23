@@ -33,13 +33,19 @@ angular.module('tweetboxApp')
 
     $scope.getNextHomeFeedTwitter = function() {
       $scope.nextTweetsLoading = true;
-      paramsHomeFeedTwitter.max_id = $scope.tweets[$scope.tweets.length-1].id;
+      paramsHomeFeedTwitter.max_id = $scope.tweets[$scope.tweets.length-1].id - 100;
+      console.log($scope.tweets[$scope.tweets.length-1].id)
+      console.log($scope.tweets[$scope.tweets.length-1].id - 100)
+      // console.log(parseInt($scope.tweets[$scope.tweets.length-1].id, 10) - 1)
+      // console.log(parseInt($scope.tweets[$scope.tweets.length-1].id, 10) - 10)
+      // console.log(parseInt($scope.tweets[$scope.tweets.length-1].id, 10) - 80)
+      // console.log(parseInt($scope.tweets[$scope.tweets.length-1].id, 10) - 90)
+      // console.log(parseInt($scope.tweets[$scope.tweets.length-1].id, 10) - 100)
 
       homeFeedTwitter.index(paramsHomeFeedTwitter).$promise.then(function(result) {
         console.log('scc: next page');
         console.log(result);
         angular.forEach(result, function(res, i) {
-          if (i = 0) angular.noop;
           $scope.tweets.push(res)
         });
         $scope.nextTweetsLoading = false;
