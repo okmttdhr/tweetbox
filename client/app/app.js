@@ -6,7 +6,8 @@ angular.module('tweetboxApp', [
   'ngSanitize',
   'ngRoute',
   'btford.socket-io',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'infinite-scroll'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider

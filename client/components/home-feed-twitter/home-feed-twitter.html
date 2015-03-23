@@ -19,7 +19,8 @@
           </div>
         </li>
         <li class="tweets_list--loading" ng-show="nextTweetsLoading">ロード中</li>
-        <button ng-click="getNextHomeFeedTwitter()">次のページ</button>
+        <!-- <button ng-click="getNextHomeFeedTwitter()">次のページ</button> -->
+        <button infinite-scroll="getNextHomeFeedTwitter()">次のページ</button>
       </ul>
     </div>
   </div>
