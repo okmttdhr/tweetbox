@@ -33,6 +33,10 @@ angular.module('tweetboxApp')
 
     $scope.getNextHomeFeedTwitter = function() {
       $scope.nextTweetsLoading = true;
+      // max_idを指定すると、そのidよりも若いid、つまり、古いtweetが取得できる。
+      // かぶってしまうツイートを除くため表示されている最後のTweetのidから引き算する。
+      // 50以下の数字だと数字が変動せず、
+      // 60以上だと変動したが、値が100減少したので、-100している。
       paramsHomeFeedTwitter.max_id = $scope.tweets[$scope.tweets.length-1].id - 100;
       homeFeedTwitter.index(paramsHomeFeedTwitter).$promise.then(function(result) {
         console.log('scc: next page');
