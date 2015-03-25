@@ -7,7 +7,8 @@ angular.module('tweetboxApp', [
   'ngRoute',
   'btford.socket-io',
   'ui.bootstrap',
-  'infinite-scroll'
+  'infinite-scroll',
+  'ngMaterial'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
