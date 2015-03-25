@@ -15,7 +15,8 @@ describe('Controller: HomeFeedCtrl', function () {
     });
   }));
 
-  it('should ...', function () {
+  it('次頁のTweetが取得できること', function () {
+    $scope.getNextHomeFeedTwitter();
     expect(1).toEqual(1);
   });
 });
