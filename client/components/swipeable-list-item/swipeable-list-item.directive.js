@@ -47,7 +47,8 @@ angular.module('tweetboxApp')
             endCoords = coords;
 
             // translate3d、isSlidingClassを削除し、静的な状態に戻す
-            element.removeAttr('style').addClass(transitionClass).removeClass(isSlidingClass);
+            element.removeClass(isSlidingClass);
+            element.find('.md-item-content--action').removeAttr('style').addClass(transitionClass)
 
             // slideTolerance より小さかった場合は元の位置に戻す
             if (!toleranceMet || Math.abs(startCoords.x - coords.x) < slideTolerance) return;
@@ -59,31 +60,35 @@ angular.module('tweetboxApp')
 
             if (dir == 'right') {
               // 右へスワイプ
-              element.removeClass(openClassLeft).addClass(openClassRight);
+              element.find('.md-item-content--done').removeClass(openClassLeft);
+              element.find('.md-item-content--clip').removeClass(openClassLeft).addClass(openClassRight);
             } else {
               // 左へスワイプ
-              element.removeClass(openClassRight).addClass(openClassLeft);
+              element.find('.md-item-content--clip').removeClass(openClassRight);
+              element.find('.md-item-content--done').removeClass(openClassRight).addClass(openClassLeft);
             }
           },
           move: function (coords, event) {
             // set a tolerance before we kick in sliding
             if (!toleranceMet && Math.abs(startCoords.x - coords.x) < tolerance) return;
 
+            element.addClass(isSlidingClass);
+            element.find('.md-item-content--action').removeClass(transitionClass)
             dir = lastCoords.x < coords.x ? 'right' : 'left';
-            element.removeClass(transitionClass).addClass(isSlidingClass);
             var x = coords.x - startCoords.x;
 
             // GPU acceleration
             var props = {};
             props[prefix + 'transform'] = 'translate3d(' + x + 'px, 0, 0)';
-            element.css(props);
+            element.find('.md-item-content--action').css(props);
 
             lastCoords = coords;
             toleranceMet = true;
           },
           cancel: function (coords, event) {
             // translate3d、isSlidingClassを削除し、静的な状態に戻す
-            element.removeAttr('style').addClass(transitionClass).removeClass(isSlidingClass);
+            element.removeClass(isSlidingClass);
+            element.find('.md-item-content--action').removeAttr('style').addClass(transitionClass)
           }
         });
       }

@@ -7,8 +7,8 @@
 
       <md-list>
         <md-item ng-repeat="tweet in tweets">
-          <div class="md-item-content--tweet-wp">
-            <md-item-content swipeable-list-item class="md-item-content--tweet">
+          <div swipeable-list-item class="md-item-content--tweet-wp">
+            <md-item-content class="md-item-content--tweet">
               <div class="md-tile-left">
                   <img ng-src="{{tweet.user.profile_image_url}}" alt="{{tweet.user.name}}">
               </div>
@@ -28,7 +28,8 @@
                 </div>
               </div>
             </md-item-content>
-            <div class="md-item-content--done"></div>
+            <div class="md-item-content--action md-item-content--done"></div>
+            <div class="md-item-content--action md-item-content--clip"></div>
           </div>
 
           <md-divider ng-if="!$last"></md-divider>

@@ -16,17 +16,29 @@
 /* リストのコンテントの裏側にあるdoneのデザイン */
 .md-item-content--done {
   position: absolute;
-  background: #0f9d58;
+  background: rgba(#0f9d58, 0.1);
+  /* background: rgba(#fff, 0.5); */
   width: 100%;
   height: 100%;
   top: 0;
-  left: 0;
+  left: 100%;
+  z-index: 1;
+}
+
+/* リストのコンテントの裏側にあるclipのデザイン */
+.md-item-content--clip {
+  position: absolute;
+  background: rgba(#eca403, 0.2);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
   z-index: 1;
 }
 
 /* Tweetリストのコンテント */
 .md-item-content--tweet {
-  background: #fff;
+  /* background: #fff; */
   align-items: flex-start;
   z-index: 10;
   .md-tile-left {
