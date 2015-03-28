@@ -4,7 +4,7 @@
 angular.module('tweetboxApp')
   .controller('HomeFeedCtrl', function ($scope, Auth, $cookieStore,
     homeFeedTwitter) {
-    $scope.tweets;
+    $scope.tweets = [];
     $scope.newTweetsLoading = false;
     $scope.nextTweetsLoading = false;
     var currentUser = Auth.getCurrentUser();
@@ -32,6 +32,7 @@ angular.module('tweetboxApp')
     };
 
     $scope.getNextHomeFeedTwitter = function() {
+      if ($scope.tweets.length == 0) { return; };
       $scope.nextTweetsLoading = true;
       // max_idを指定すると、そのidよりも若いid、つまり、古いtweetが取得できる。
       // かぶってしまうツイートを除くため表示されている最後のTweetのidから引き算する。
