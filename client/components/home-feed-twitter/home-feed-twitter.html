@@ -17,7 +17,7 @@
               <p ng-repeat="url in tweet.entities.urls" ng-show="{{tweet.entities.urls.length}}">
                 <a ng-href="{{url.expanded_url}}" target="_blank">{{url.display_url}}</a>
               </p>
-              <div class="md-tile-content__img-wp" ng-show="{{tweet.extended_entities.media.length}}">
+              <div class="md-tile-content__img-wp" ng-show="{{tweet.extended_entities.media.length}}" ng-hide="true">
                 <div class="md-tile-content__img-box" ng-repeat="media in tweet.extended_entities.media" ng-hide="{{tweet.extended_entities.media.length > 1}}">
                   <img ng-src="{{media.media_url}}" alt="">
                 </div>
