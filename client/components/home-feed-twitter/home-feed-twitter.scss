@@ -27,6 +27,24 @@
       font-size: 14px;
       line-height: inherit;
     }
+    .md-tile-content__img-wp {
+      // 画像エリアのラッパー
+      height: 150px;
+      overflow: hidden;
+      .md-tile-content__img-box {
+        // 共通
+        img {
+          width: 100%;
+        }
+      }
+      .md-tile-content__img-box-multi {
+        // 3枚以上の画像
+        width: 50%;
+        height: 100%;
+        float: left;
+        padding-right: 10px;
+      }
+    }
   }
 }
 
