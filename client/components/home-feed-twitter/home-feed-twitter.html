@@ -6,27 +6,31 @@
       <p class="tweets_list--loading" ng-show="newTweetsLoading">ロード中</p>
 
       <md-list>
-        <md-item ng-repeat="tweet in tweets" class="clearfix">
-          <md-item-content class="md-item-content--tweet">
-            <div class="md-tile-left">
-                <img ng-src="{{tweet.user.profile_image_url}}" alt="{{tweet.user.name}}">
-            </div>
-            <div class="md-tile-content">
-              <h4>{{tweet.user.name}}</h4>
-              <p ng-bind-html="tweet.text | deleteUrlFilter | tweetTextFilter:tweet.entities.user_mentions:tweet.entities.hashtags"></p>
-              <p ng-repeat="url in tweet.entities.urls" ng-show="{{tweet.entities.urls.length}}">
-                <a ng-href="{{url.expanded_url}}" target="_blank">{{url.display_url}}</a>
-              </p>
-              <div class="md-tile-content__img-wp" ng-show="{{tweet.extended_entities.media.length}}" ng-hide="true">
-                <div class="md-tile-content__img-box" ng-repeat="media in tweet.extended_entities.media" ng-hide="{{tweet.extended_entities.media.length > 1}}">
-                  <img ng-src="{{media.media_url}}" alt="">
-                </div>
-                <div class="md-tile-content__img-box md-tile-content__img-box-multi" ng-repeat="media in tweet.extended_entities.media" ng-show="{{tweet.extended_entities.media.length > 1}}">
-                  <img ng-src="{{media.media_url}}" alt="">
+        <md-item ng-repeat="tweet in tweets">
+          <div class="md-item-content--tweet-wp">
+            <md-item-content swipeable-list-item class="md-item-content--tweet">
+              <div class="md-tile-left">
+                  <img ng-src="{{tweet.user.profile_image_url}}" alt="{{tweet.user.name}}">
+              </div>
+              <div class="md-tile-content">
+                <h4>{{tweet.user.name}}</h4>
+                <p ng-bind-html="tweet.text | deleteUrlFilter | tweetTextFilter:tweet.entities.user_mentions:tweet.entities.hashtags"></p>
+                <p ng-repeat="url in tweet.entities.urls" ng-show="{{tweet.entities.urls.length}}">
+                  <a ng-href="{{url.expanded_url}}" target="_blank">{{url.display_url}}</a>
+                </p>
+                <div class="md-tile-content__img-wp" ng-show="{{tweet.extended_entities.media.length}}" ng-hide="true">
+                  <div class="md-tile-content__img-box" ng-repeat="media in tweet.extended_entities.media" ng-hide="{{tweet.extended_entities.media.length > 1}}">
+                    <img ng-src="{{media.media_url}}" alt="">
+                  </div>
+                  <div class="md-tile-content__img-box md-tile-content__img-box-multi" ng-repeat="media in tweet.extended_entities.media" ng-show="{{tweet.extended_entities.media.length > 1}}">
+                    <img ng-src="{{media.media_url}}" alt="">
+                  </div>
                 </div>
               </div>
-            </div>
-          </md-item-content>
+            </md-item-content>
+            <div class="md-item-content--done"></div>
+          </div>
+
           <md-divider ng-if="!$last"></md-divider>
         </md-item>
       </md-list>

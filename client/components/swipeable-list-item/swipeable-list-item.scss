@@ -1,0 +1,15 @@
+.swipeable-list-item-transition {
+  transition: transform 0.2s;
+}
+
+.swipeable-list-item-is-sliding {
+  user-select: none;
+}
+
+.swipeable-list-item-open-right {
+  transform: translate3d(100%, 0, 0);
+}
+
+.swipeable-list-item-open-left {
+  transform: translate3d(-100%, 0, 0);
+}
