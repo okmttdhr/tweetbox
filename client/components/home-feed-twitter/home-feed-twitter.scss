@@ -1,6 +1,38 @@
+/* コンテナ */
+.home_feed_container {
+  width: 590px;
+  margin: 0 auto;
+  background: #fff;
+  margin-top: 75px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.24);
+}
+
+/* リストのコンテント */
 .md-item-content--tweet {
   align-items: flex-start;
   .md-tile-left {
-    padding-top: 16px;
+    padding: 16px;
+    img {
+      border-radius: 50%;
+      overflow: hidden;
+    }
+  }
+  .md-tile-content {
+    h4 {
+      font-weight: bold;
+      font-size: 14px;
+      margin: 0 0 5px 0;
+    }
+    p {
+      font-size: 14px;
+      line-height: inherit;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .home_feed_container {
+    width: 100%;
   }
 }

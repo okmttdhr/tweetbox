@@ -1,12 +1,12 @@
 <div class="container" ng-controller="HomeFeedCtrl">
   <div class="row">
-    <div class="col-lg-12">
+    <div class="home_feed_container">
 
       <button ng-click="updateHomeFeedTwitter()">更新</button>
       <p class="tweets_list--loading" ng-show="newTweetsLoading">ロード中</p>
 
       <md-list>
-        <md-item ng-repeat="tweet in tweets">
+        <md-item ng-repeat="tweet in tweets" class="clearfix">
           <md-item-content class="md-item-content--tweet">
             <div class="md-tile-left">
                 <img ng-src="{{tweet.user.profile_image_url}}" alt="{{tweet.user.name}}">
@@ -18,10 +18,11 @@
                 <a ng-href="{{url.expanded_url}}" target="_blank">{{url.display_url}}</a>
               </p>
               <div ng-repeat="media in tweet.entities.media" ng-show="{{tweet.entities.media.length}}">
-                <img ng-src="{{media.media_url}}" alt="">
+                <img ng-src="{{media.media_url}}" alt="" style="width: 100%;/*#todo 画像を3枚に変更する際に削除*/">
               </div>
             </div>
           </md-item-content>
+          <md-divider ng-if="!$last"></md-divider>
         </md-item>
       </md-list>
 
