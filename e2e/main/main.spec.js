@@ -5,12 +5,16 @@ describe('Main View', function() {
 
   beforeEach(function() {
     browser.get('/');
-    page = require('./main.po');
+    // page = require('./main.po');
   });
 
-  it('should include jumbotron with correct data', function() {
+  xit('should include jumbotron with correct data', function() {
     expect(page.h1El.getText()).toBe('\'Allo, \'Allo!');
     expect(page.imgEl.getAttribute('src')).toMatch(/assets\/images\/yeoman.png$/);
     expect(page.imgEl.getAttribute('alt')).toBe('I\'m Yeoman');
+  });
+
+  it('テスト', function() {
+    expect(element(by.css('.navbar-brand p')).getText()).toBe('Inbox');
   });
 });
