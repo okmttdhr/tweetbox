@@ -11,7 +11,7 @@ describe('Service: homeFeedTwitter', function () {
     homeFeedTwitter = _homeFeedTwitter_;
   }));
 
-  it('should do something', function () {
+  xit('should do something', function () {
     expect(!!homeFeedTwitter).toBe(true);
   });
 
